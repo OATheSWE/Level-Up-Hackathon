@@ -48,9 +48,7 @@ nav {
   background: var(--grey-200);
 }
 
-nav .desktop-logo {
-  cursor: pointer;
-}
+/* SEARCH SECTION */
 
 nav .search-container {
   display: flex;
@@ -89,6 +87,8 @@ nav .search-container:focus-within {
   cursor: pointer;
 }
 
+/* NAVIGATION END SECTION */
+
 nav .nav-end {
   display: flex;
   gap: 8px;
@@ -99,6 +99,8 @@ nav .nav-end div {
   cursor: pointer;
   transition: 300ms ease-in-out;
 }
+
+/* ALERTS SECTION */
 
 nav .nav-end .icon {
   display: flex;
@@ -125,6 +127,8 @@ nav .nav-end .icon:focus {
   box-shadow: 0px 0px 0px 3px var(--state-focused), 0px 0px 0px 1px #000;
 }
 
+/* ALERTS DROPDOWN */
+
 nav .nav-end .icon .alert {
   display: inline-flex;
   flex-direction: column;
@@ -139,6 +143,8 @@ nav .nav-end .icon .alert {
   top: 5rem;
   align-items: flex-start;
 }
+
+/* ALERT HEAD SECTION */
 
 nav .nav-end .icon .alert .alert-head {
   display: flex;
@@ -158,6 +164,8 @@ nav .nav-end .icon .alert .alert-head .alert-icons svg {
   stroke: var(--font-mid);
 }
 
+/* ALERT BODY SECTION */
+
 nav .nav-end .icon .alert .alert-body {
   background: var(--plain-background);
   font: var(--text-13-semiB);
@@ -168,6 +176,8 @@ nav .nav-end .icon .alert .alert-body {
   gap: 8px;
   width: 91%;
 }
+
+/* USER ACCOUNT DROPDOWN SECTION */
 
 nav .nav-end .name {
   display: flex;
@@ -204,6 +214,8 @@ nav .nav-end .name span {
   color: rgba(0, 0, 0, 0.4);
 }
 
+/* PROFILE DROPDOWN */
+
 nav .nav-end .name .profile-drp {
   display: flex;
   width: 320px;
@@ -221,22 +233,37 @@ nav .nav-end .name .profile-drp {
   transition: 300ms ease-in-out;
 }
 
-nav .nav-end .name .profile-drp li {
-  list-style-type: none;
+nav .nav-end .name .profile-drp a {
   display: flex;
   padding: 6px;
   align-items: center;
   gap: 8px;
   align-self: stretch;
   cursor: pointer;
-  width: 95%;
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
+  font: var(--text-13-Reg);
+  text-decoration: none;
+  color: var(--grey-grey-200);
 }
 
-nav .nav-end .name .profile-drp li svg {
+nav .nav-end .name .profile-drp a#first {
+  background: var(--plain-background);
+}
+
+nav .nav-end .name .profile-drp a:hover {
+  background: var(--plain-background);
+}
+
+nav .nav-end .name .profile-drp a:focus {
+  border: 2px solid var(--state-focused);
+}
+
+nav .nav-end .name .profile-drp a svg {
   stroke: var(--grey-grey-200);
 }
 
-nav .nav-end .name .profile-drp li svg:last-child {
+nav .nav-end .name .profile-drp a svg:nth-child(2) {
   display: block;
   margin: auto 0 auto auto;
 }
@@ -244,17 +271,15 @@ nav .nav-end .name .profile-drp li svg:last-child {
 nav .nav-end .name .profile-drp div {
   border-bottom: 1px solid var(--stroke-s100);
   width: 100%;
+  padding: 3px;
 }
 
-nav .nav-end .name .profile-drp li a {
-  font: var(--text-13-Reg);
-  text-decoration: none;
-  color: var(--grey-grey-200);
-}
 
-nav .nav-end .name .profile-drp li a p {
+nav .nav-end .name .profile-drp a p {
   color: var(--font-mid);
 }
+
+/* ANIMATION FOR DROPDOWN */
 
 .drp {
   transform: translateY(2rem);
