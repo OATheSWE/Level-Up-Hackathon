@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cancel Box</title>
+  <style>
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f0f0f0;
+      padding: 5px;
+      border-radius: 10px;
+      max-width:650px; /* Adjust the maximum width of the box */
+      margin: 0 auto; /* Center the box */
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 80px; /* Increased space between text and button */
+    }
+
+    .cancel-icon {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="myBox">
+  <p>Extend your trial for $1/month for 3 months on select plans.</p>
+  <button>Select a Plan</button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="cancel-icon"
+    id="cancelIcon"
+  >
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</div>
+
+<script>
+  const cancelIcon = document.getElementById('cancelIcon');
+  const box = document.getElementById('myBox');
+
+  cancelIcon.addEventListener('click', function() {
+    box.remove(); // Remove the entire box when the cancel icon is clicked
+  });
+</script>
+
+</body>
+</html>

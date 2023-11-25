@@ -10,12 +10,18 @@
 :root {
   --grey-50: #656266;
   --grey-100: #616161;
+  --grey-g-100: #b5b5b5;
+  --grey-grey-200: #303030;
   --grey-200: #322f33;
   --grey-300: #1c181d;
+  --grey-grey-300: #1a1a1a;
   --font-light: #e3e3e3;
   --font-mid: #616161;
   --font-dark: #475467;
+  --font-dark-2: #323232;
   --stroke-50: #ebebeb;
+  --stroke-s-50: #dbdbdb;
+  --stroke-s100: #e1e1e1;
   --stroke-100: #00000012;
   --stroke-200: #ffffff33;
   --state-hover: #f7f7f7;
@@ -31,10 +37,16 @@
   --text-12-semiB: 600 12px/1.3 "Inter", sans-serif;
   --text-13-semiB: 600 13px/1.4 "Inter", sans-serif;
   --text-14-semiB: 600 14px/1.4 "Inter", sans-serif;
-  --grey-g-100: #b5b5b5;
-  --grey-grey-200: #303030;
-  --stroke-s-50: #dbdbdb;
-  --stroke-s100: #e1e1e1;
+  --transition: 300ms ease-in-out;
+}
+
+/* CONTAINER */
+
+.container {
+  display: flex;
+  padding-bottom: 0px;
+  flex-direction: column;
+  gap: 32px;
 }
 
 /* NAV BAR */
@@ -45,7 +57,7 @@ nav {
   justify-content: space-between;
   padding: 12px 16px;
   align-items: center;
-  background: var(--grey-200);
+  background: var(--grey-grey-300);
 }
 
 /* SEARCH SECTION */
@@ -62,7 +74,7 @@ nav .search-container {
   border: 1px solid var(--stroke-200);
   background: var(--grey-200);
   color: var(--grey-g-100);
-  transition: 300ms ease-in-out;
+  transition: var(--transition);
 }
 
 nav .search-container:hover {
@@ -97,7 +109,7 @@ nav .nav-end {
 
 nav .nav-end div {
   cursor: pointer;
-  transition: 300ms ease-in-out;
+  transition: var(--transition);
 }
 
 /* ALERTS SECTION */
@@ -162,6 +174,11 @@ nav .nav-end .icon .alert .alert-head .alert-icons {
 
 nav .nav-end .icon .alert .alert-head .alert-icons svg {
   stroke: var(--font-mid);
+  border-radius: 5px;
+}
+
+nav .nav-end .icon .alert .alert-head .alert-icons svg:last-child:focus {
+  outline: 2px solid var(--state-focused);
 }
 
 /* ALERT BODY SECTION */
@@ -230,7 +247,7 @@ nav .nav-end .name .profile-drp {
   position: absolute;
   top: 5rem;
   left: -7.6rem;
-  transition: 300ms ease-in-out;
+  transition: var(--transition);
 }
 
 nav .nav-end .name .profile-drp a {
@@ -240,7 +257,7 @@ nav .nav-end .name .profile-drp a {
   gap: 8px;
   align-self: stretch;
   cursor: pointer;
-  transition: 300ms ease-in-out;
+  transition: var(--transition);
   border-radius: 8px;
   font: var(--text-13-Reg);
   text-decoration: none;
@@ -274,7 +291,6 @@ nav .nav-end .name .profile-drp div {
   padding: 3px;
 }
 
-
 nav .nav-end .name .profile-drp a p {
   color: var(--font-mid);
 }
@@ -295,4 +311,86 @@ nav .nav-end .name .profile-drp a p {
   opacity: 1;
   cursor: pointer;
   visibility: visible;
+}
+
+/* MAIN  */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+
+/* BOX  */
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--grey-grey-300);
+  border-radius: 8px;
+  width: 800px;
+  padding: 12px 8px 12px 16px;
+  font: var(--text-13-Med);
+  color: var(--font-light);
+  transition: var(--transition);
+}
+
+
+/* BOX END  */
+
+.box .box-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var(--plain-white);
+  color: var(--font-dark-2);
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px var(--grey-g-100) inset;
+  font: var(--text-12-semiB);
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--state-hover);
+}
+
+button:active {
+  box-shadow: 0px 2px 1.5px 0px #e2e2e2 inset;
+}
+
+button:focus {
+  background: var(--plain-white);
+  box-shadow: 0px 0px 0px 3px var(--state-focused),
+    0px 0px 0px 1px var(--plain-white), 0px -1px 0px 0px var(--grey-g-100) inset;
+}
+
+/* CANCEL ICON & ANIMATION */
+
+.cancel-icon {
+  cursor: pointer;
+  padding: 6px;
+  stroke: var(--font-light);
+  transition: var(--transition);
+}
+
+.box-anim {
+  transform: translateY(-0.2rem);
+  filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
 }
