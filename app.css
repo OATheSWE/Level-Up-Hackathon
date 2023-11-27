@@ -38,26 +38,49 @@
   --text-13-semiB: 600 13px/1.4 "Inter", sans-serif;
   --text-14-semiB: 600 14px/1.4 "Inter", sans-serif;
   --transition: 300ms ease-in-out;
+  --transition-accordion: 500ms ease-in-out;
 }
 
 /* CONTAINER */
 
 .container {
   display: flex;
-  padding-bottom: 0px;
+  padding-bottom: 32px;
   flex-direction: column;
   gap: 32px;
+  overflow-x: hidden;
 }
 
 /* NAV BAR */
 
 nav {
-  height: 60px;
   display: flex;
   justify-content: space-between;
   padding: 12px 16px;
   align-items: center;
   background: var(--grey-grey-300);
+  transition: var(--transition);
+}
+
+@keyframes transitionNav {
+  0% {
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+  100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+.animate-on-load {
+  animation: transitionNav 2s ease-in-out;
+}
+
+nav #mobile-shopify {
+  display: none;
 }
 
 /* SEARCH SECTION */
@@ -65,7 +88,8 @@ nav {
 nav .search-container {
   display: flex;
   align-items: center;
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
   padding: 3px 8px;
   align-items: center;
   gap: 6px;
@@ -154,6 +178,7 @@ nav .nav-end .icon .alert {
   width: 350px;
   top: 5rem;
   align-items: flex-start;
+  z-index: 9999;
 }
 
 /* ALERT HEAD SECTION */
@@ -220,7 +245,7 @@ nav .nav-end .name:focus {
   box-shadow: 0px 0px 0px 3px var(--state-focused), 0px 0px 0px 1px #000;
 }
 
-nav .nav-end .name span {
+nav .nav-end .name span:nth-child(2), nav .nav-end .name .profile-drp a span {
   border-radius: 6px;
   background: #36fba1;
   display: flex;
@@ -248,6 +273,7 @@ nav .nav-end .name .profile-drp {
   top: 5rem;
   left: -7.6rem;
   transition: var(--transition);
+  z-index: 9999;
 }
 
 nav .nav-end .name .profile-drp a {
@@ -264,6 +290,11 @@ nav .nav-end .name .profile-drp a {
   color: var(--grey-grey-200);
 }
 
+nav .nav-end .name .profile-drp div:nth-child(3) a:first-child {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 nav .nav-end .name .profile-drp a#first {
   background: var(--plain-background);
 }
@@ -278,6 +309,10 @@ nav .nav-end .name .profile-drp a:focus {
 
 nav .nav-end .name .profile-drp a svg {
   stroke: var(--grey-grey-200);
+}
+
+nav .nav-end .name .profile-drp a span {
+
 }
 
 nav .nav-end .name .profile-drp a svg:nth-child(2) {
@@ -318,11 +353,11 @@ nav .nav-end .name .profile-drp a p {
 main {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
   margin: 0 auto;
 }
-
 
 /* BOX  */
 
@@ -332,24 +367,44 @@ main {
   justify-content: space-between;
   background-color: var(--grey-grey-300);
   border-radius: 8px;
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
   padding: 12px 8px 12px 16px;
   font: var(--text-13-Med);
   color: var(--font-light);
   transition: var(--transition);
 }
 
+@keyframes transitionRight {
+  0% {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translateX(-100%);
+        will-change: transform;
+    }
+
+  100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+
+.animate-on-load2 {
+  animation: transitionRight 2s ease-in-out;
+}
 
 /* BOX END  */
 
 .box .box-end {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   gap: 8px;
 }
 
-button {
+.select-plan {
   display: flex;
   padding: 6px 12px;
   align-items: center;
@@ -365,15 +420,15 @@ button {
   transition: var(--transition);
 }
 
-button:hover {
+.select-plan:hover {
   background: var(--state-hover);
 }
 
-button:active {
+.select-plan:active {
   box-shadow: 0px 2px 1.5px 0px #e2e2e2 inset;
 }
 
-button:focus {
+.select-plan:focus {
   background: var(--plain-white);
   box-shadow: 0px 0px 0px 3px var(--state-focused),
     0px 0px 0px 1px var(--plain-white), 0px -1px 0px 0px var(--grey-g-100) inset;
@@ -393,4 +448,463 @@ button:focus {
   filter: blur(4px);
   opacity: 0;
   visibility: hidden;
+  cursor: none;
+}
+
+.main-accordion {
+  transition: var(--transition);
+  border-radius: 18px;
+  border: 1px solid var(--stroke-s-50);
+  background: var(--plain-white);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+@keyframes transitionLeft {
+  0% {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translateX(100%);
+        will-change: transform;
+    }
+
+  100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+.animate-on-load3 {
+  animation: transitionLeft 2s ease-in-out;
+}
+
+.main-accordion .accordion-icon {
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  transition: var(--transition);
+  border-radius: 6px;
+}
+
+.accordion-icon:hover {
+  background: var(--state-hover);
+}
+
+.main-accordion .accordion-icon:focus {
+  outline: none;
+}
+
+.main-accordion .main-content {
+  overflow: hidden;
+  transition: max-height var(--transition);
+  display: flex;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.main-accordion .main-content .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--grey-grey-200);
+}
+
+.main-accordion .main-content .top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.main-accordion .main-content .top p {
+  font: var(--text-13-Reg);
+}
+
+.main-accordion .main-content .top p:first-child {
+  font: var(--text-14-semiB);
+}
+
+.main-accordion .main-content .bottom p {
+  font: var(--text-12-Reg);
+}
+
+.main-accordion .main-content .bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add these styles to your existing CSS */
+
+.sub-accordion {
+  max-height: 1500px;
+  overflow: hidden;
+  transition: max-height , transform var(--transition-accordion);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  align-self: stretch;
+  transform: translateY(0);
+}
+
+.sub-accordion.open {
+  max-height: 0;
+  transform: translateY(2rem);
+}
+
+.sub-accordion .accordion {
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 96px;
+  padding: 8px;
+  max-height: 40px;
+  overflow: hidden;
+  transition: max-height var(--transition-accordion);
+}
+
+.accordion.sub-open {
+  max-height: 1000px;
+  padding: 8px 8px 12px 8px;
+  background: #f3f3f3;
+}
+
+.open {
+  max-height: 1000px;
+}
+
+.sub-accordion .accordion .left .check {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.sub-accordion .accordion .left .check .circle-hover {
+  transition: 300ms ease-in-out;
+  border: 2px solid #8A8A8A;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.sub-accordion .accordion .left .check svg {
+  transition: 300ms ease-in-out;
+  position: absolute;
+}
+
+.check-hide {
+  filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.check-show {
+  opacity: 1;
+  filter: blur(0);
+  visibility: visible;
+}
+
+.sub-accordion .panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  margin-top: 4px;
+}
+
+.sub-accordion .panel .panel-small {
+  filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  cursor: none;
+  transform: translateX(-2rem);
+  transition: var(--transition-accordion);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.sub-accordion .panel .panel-small p {
+  font: var(--text-13-Med);
+  color: var(--font-mid);
+}
+
+.sub-accordion .panel .panel-small.accord-show {
+  filter: blur(0);
+  opacity: 1;
+  visibility: visible;
+  cursor: inherit;
+  transform: translateX(0);
+}
+
+.sub-accordion .panel .accordion-label {
+  font: var(--text-13-Med);
+  color: var(--grey-grey-200);
+}
+
+.sub-accordion .panel p:nth-child(2) {
+  font: var(--text-13-Reg);
+  color: var(--font-mid);
+}
+
+.sub-accordion .panel p span {
+  font: var(--text-14-Med);
+  color: var(--state-focused);
+}
+
+.sub-accordion .panel button {
+  display: inline-flex;
+  padding: 6px 12px;
+  align-items: center;
+  border-radius: 6px;
+  border-top: 1.5px solid var(--stroke-200);
+  border-right: 1.5px solid var(--stroke-200);
+  border-left: 1.5px solid var(--stroke-200);
+  background: #404040;
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
+    0px 2px 0px 0px #000;
+  color: var(--plain-white);
+  font: var(--text-12-Med);
+  transition: var(--transition);
+  cursor: pointer;
+  margin: -5px 0 0 5px;
+}
+
+.sub-accordion .panel button:hover {
+  background: #2a2a2a;
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
+    0px 2px 0px 0px #000;
+}
+
+.sub-accordion .panel button:active {
+  background: #2b2b2b;
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 3px 0px 0px #000 inset;
+}
+
+.sub-accordion .panel button:focus {
+  background: #404040;
+  box-shadow: 0px 0px 0px 5px var(--state-focused),
+    0px 0px 0px 3px var(--plain-white), 0px 0px 0px 1.5px #333;
+}
+
+.sub-accordion .accordion .left {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.accordion img {
+  filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  cursor: none;
+  transform: translateX(2rem);
+  transition: var(--transition-accordion);
+  object-fit: cover;
+}
+
+.accordion img.accord-show {
+  filter: blur(0);
+  opacity: 1;
+  visibility: visible;
+  cursor: inherit;
+  transform: translateX(0);
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--font-light);
+  border-radius: 5px;
+  overflow: hidden;
+  width: 72px;
+  margin-top: 2px;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background: var(--grey-grey-300);
+  transition: width var(--transition);
+}
+
+@keyframes transitionIn {
+  0% {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translateX(100%);
+        will-change: transform;
+    }
+
+  100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  nav .search-container {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 300px) {
+  nav .nav-end .icon .alert {
+    left: -180%;
+    width: auto;
+  }
+}
+
+@media (max-width: 370px) {
+  nav .nav-end .icon .alert {
+    left: -200%;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    gap: 8px;
+  }
+
+  nav #mobile-shopify {
+    display: block;
+  }
+
+  nav #desktop-shopify {
+    display: none;
+  }
+
+  nav .search-container {
+    width: auto;
+  }
+
+  nav .search-container input {
+    min-width: 50px;
+  }
+
+  nav .nav-end .icon {
+    background: none;
+    width: auto;
+    height: auto;
+  }
+
+  nav .nav-end .icon .alert {
+    left: -250%;
+    width: auto;
+  }
+
+  nav .nav-end .icon .alert .alert-body {
+    width: auto;
+  }
+
+  nav .nav-end .name {
+    background: none;
+    padding: 0;
+    justify-content: start;
+  }
+
+  nav .nav-end .name .profile-drp {
+    left: -120%;
+    width: auto;
+  }
+
+  nav .nav-end .name span:first-child {
+    display: none;
+  }
+
+  nav .nav-end .name .profile-drp a span {
+    display: flex;
+  }
+
+  main {
+    margin: 0;
+    align-items: stretch;
+  }
+
+  .box {
+    border-radius: 0;
+    width: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+  }
+
+  .box p {
+    width: 320px;
+  }
+
+  #cancelIcon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .main-accordion {
+    border-radius: 0;
+    width: auto;
+  }
+
+  .accordion img {
+    display: none;
+  }
+}
+
+
+
+@media (min-width: 300px) and (max-width: 370px) {
+  nav .nav-end .icon .alert {
+    left: -200%;
+    width: auto;
+  }
+}
+
+@media (max-width: 300px) {
+  nav .nav-end .icon .alert {
+    left: -180%;
+    width: auto;
+  }
+}
+
+
+@media (max-width: 320px) {
+  nav .search-container input {
+    width: 50px;
+  }
+
+  .box p {
+    width: 250px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 380px) {
+  nav .search-container input {
+    width: 90px;
+  }
+
+  .box p {
+    width: 270px;
+  }
 }
