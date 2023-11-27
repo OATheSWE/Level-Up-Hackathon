@@ -314,15 +314,15 @@ updateCounterAndProgress();
 
 
 
-// window.addEventListener('load', function () {
-//   // Get the element you want to animate
-//   let element1 = document.querySelector('nav');
-//   let element2 = document.querySelector('.box');
-//   let element3 = document.querySelector('.main-accordion');
+window.addEventListener('load', function () {
+  // Get the element you want to animate
+  let element1 = document.querySelector('nav');
+  let element2 = document.querySelector('.box');
+  let element3 = document.querySelector('.main-accordion');
   
-//   // Add a class to trigger the animation
-//   element1.classList.add('animate-on-load');
-//   element2.classList.add('animate-on-load2');
-//   element3.classList.add('animate-on-load3');
-// });
+  // Add a class to trigger the animation
+  element1.classList.add('animate-on-load');
+  element2.classList.add('animate-on-load2');
+  element3.classList.add('animate-on-load3');
+});
 
