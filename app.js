@@ -48,7 +48,7 @@ document.addEventListener("click", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
  
-  const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+  const dropdownLinks = document.querySelectorAll('.profile-drp a');
 
   dropdowns[1].addEventListener('keydown', function (event) {
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const nextIndex = (event.key === 'ArrowDown') ? (index + 1) % dropdownLinks.length : (index - 1 + dropdownLinks.length) % dropdownLinks.length;
           dropdownLinks[nextIndex].focus();
       } else if (event.key === 'Escape') {
-          dropdowns[1].focus();
+          dropdownsBtn[1].focus();
       }
   });
 });
@@ -384,23 +384,3 @@ function updateCounterAndProgress() {
 
 // Initial update to set the counter and progress bar based on the initial state
 updateCounterAndProgress();
-
-
-
-
-
-// Event listener for when the window has finished loading
-
-
-window.addEventListener('DOMContentLoaded', function () {
-  // Get the elements you want to animate
-  let element1 = document.querySelector('nav');
-  let element2 = document.querySelector('.box');
-  let element3 = document.querySelector('.main-accordion');
-  
-  // Add a class to trigger the animation for each element
-  element1.classList.add('animate-on-load');
-  element2.classList.add('animate-on-load2');
-  element3.classList.add('animate-on-load3');
-});
-

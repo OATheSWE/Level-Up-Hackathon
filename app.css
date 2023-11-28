@@ -62,22 +62,6 @@ nav {
   transition: var(--transition);
 }
 
-@keyframes transitionNav {
-  0% {
-    opacity: 0;
-    filter: blur(4px);
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-.animate-on-load {
-  animation: transitionNav 2s ease-in-out;
-}
-
 nav #mobile-shopify {
   display: none;
 }
@@ -378,25 +362,6 @@ main {
   transition: var(--transition);
 }
 
-@keyframes transitionRight {
-  0% {
-    opacity: 0;
-    filter: blur(4px);
-    transform: translateX(-100%);
-    will-change: transform;
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-  }
-}
-
-.animate-on-load2 {
-  animation: transitionRight 2s ease-in-out;
-}
-
 /* BOX END  */
 
 .box .box-end {
@@ -473,25 +438,6 @@ main {
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
-}
-
-@keyframes transitionLeft {
-  0% {
-    opacity: 0;
-    filter: blur(4px);
-    transform: translateX(100%);
-    will-change: transform;
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-  }
-}
-
-.animate-on-load3 {
-  animation: transitionLeft 2s ease-in-out;
 }
 
 /* MAIN CONTENT */
@@ -724,9 +670,6 @@ main {
   gap: 16px;
 }
 
-.sub-accordion .panel .check2-btn button:nth-child(2) {
-}
-
 .sub-accordion .panel button {
   display: inline-flex;
   padding: 6px 12px;
@@ -792,6 +735,8 @@ main {
   transform: translateX(2rem);
   transition: var(--transition-accordion);
   object-fit: cover;
+  width: 155px;
+  height: 135px;
 }
 
 .accordion img.accord-show {
