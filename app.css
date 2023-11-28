@@ -64,16 +64,15 @@ nav {
 
 @keyframes transitionNav {
   0% {
-        opacity: 0;
-        filter: blur(4px);
-    }
+    opacity: 0;
+    filter: blur(4px);
+  }
 
   100% {
-        opacity: 1;
-        filter: blur(0);
-    }
+    opacity: 1;
+    filter: blur(0);
+  }
 }
-
 
 .animate-on-load {
   animation: transitionNav 2s ease-in-out;
@@ -90,7 +89,7 @@ nav .search-container {
   align-items: center;
   max-width: 480px;
   width: 100%;
-  padding: 3px 8px;
+  padding: 2px 8px;
   gap: 6px;
   flex-shrink: 0;
   border-radius: 8px;
@@ -247,7 +246,8 @@ nav .nav-end .name:focus {
   box-shadow: 0px 0px 0px 3px var(--state-focused), 0px 0px 0px 1px #000;
 }
 
-nav .nav-end .name span:nth-child(2), nav .nav-end .name .profile-drp a span {
+nav .nav-end .name span:nth-child(2),
+nav .nav-end .name .profile-drp a span {
   border-radius: 6px;
   background: #36fba1;
   display: flex;
@@ -380,19 +380,18 @@ main {
 
 @keyframes transitionRight {
   0% {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(-100%);
-        will-change: transform;
-    }
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateX(-100%);
+    will-change: transform;
+  }
 
   100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0);
-    }
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
 }
-
 
 .animate-on-load2 {
   animation: transitionRight 2s ease-in-out;
@@ -444,6 +443,11 @@ main {
   padding: 6px;
   stroke: var(--font-light);
   transition: var(--transition);
+  border-radius: 6px;
+}
+
+.cancel-icon:focus {
+  outline: 2px solid var(--state-focused);
 }
 
 .box-anim {
@@ -453,8 +457,6 @@ main {
   visibility: hidden;
   cursor: none;
 }
-
-
 
 /* MAIN ACCORDION  */
 
@@ -475,17 +477,17 @@ main {
 
 @keyframes transitionLeft {
   0% {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(100%);
-        will-change: transform;
-    }
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateX(100%);
+    will-change: transform;
+  }
 
   100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0);
-    }
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
 }
 
 .animate-on-load3 {
@@ -556,7 +558,6 @@ main {
   transition: width var(--transition);
 }
 
-
 /* THE ACCORDION ICON */
 
 .main-accordion .accordion-icon {
@@ -574,7 +575,7 @@ main {
 }
 
 .main-accordion .accordion-icon:focus {
-  
+  outline: 2px solid var(--state-focused);
 }
 
 /* SUB ACCORDION WITHIN MAIN ACCORDION */
@@ -582,7 +583,7 @@ main {
 .sub-accordion {
   max-height: 1500px;
   overflow: hidden;
-  transition: max-height , transform var(--transition-accordion);
+  transition: max-height, transform var(--transition-accordion);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -595,7 +596,6 @@ main {
   max-height: 0;
   transform: translateY(2rem);
 }
-
 
 /* ACCORDIONS WITHIN THE SUB ACCORDION */
 
@@ -643,7 +643,7 @@ main {
 
 .sub-accordion .accordion .left .check .circle-hover {
   transition: 300ms ease-in-out;
-  border: 2px solid #8A8A8A;
+  border: 2px solid #8a8a8a;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -714,7 +714,7 @@ main {
   color: var(--font-mid);
 }
 
-.sub-accordion .panel p  {
+.sub-accordion .panel p {
   font: var(--text-14-Med);
   color: var(--state-focused);
 }
@@ -725,7 +725,6 @@ main {
 }
 
 .sub-accordion .panel .check2-btn button:nth-child(2) {
-
 }
 
 .sub-accordion .panel button {
@@ -775,14 +774,13 @@ main {
 }
 
 .sub-accordion .panel .check2-btn button:nth-child(2):active {
-  background: #E0E0E0;
+  background: #e0e0e0;
 }
 
 .sub-accordion .panel .check2-btn button:nth-child(2):focus {
   border: 2px solid var(--state-focused);
   background: var(--plain-white);
 }
-
 
 /* IMAGE INSIDE THE ACCORDION */
 
@@ -806,21 +804,18 @@ main {
 
 @keyframes transitionIn {
   0% {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(100%);
-        will-change: transform;
-    }
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateX(100%);
+    will-change: transform;
+  }
 
   100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0);
-    }
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
 }
-
-
-
 
 /* MEDIA QUERIES */
 
@@ -837,7 +832,7 @@ main {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   nav {
     gap: 8px;
   }
@@ -853,7 +848,6 @@ main {
   nav .search-container {
     width: auto;
   }
-
 
   nav .nav-end .icon {
     background: none;
@@ -881,12 +875,12 @@ main {
     width: auto;
   }
 
-  nav .nav-end .name :first-child {
+  nav .nav-end .name span:first-child {
     display: none;
   }
 
-  nav .nav-end .name .profile-drp a  {
-    display: flex;
+  #first {
+    gap: 5px;
   }
 
   main {
@@ -923,7 +917,6 @@ main {
   }
 }
 
-
 @media (min-width: 300px) and (max-width: 370px) {
   nav .nav-end .icon .alert {
     left: -200%;
@@ -937,7 +930,6 @@ main {
     width: auto;
   }
 }
-
 
 @media (max-width: 320px) {
   nav .search-container input {
@@ -956,5 +948,21 @@ main {
 
   .box p {
     width: 270px;
+  }
+}
+
+@media (min-width: 380px) and (max-width: 480px) {
+  nav .search-container input {
+    width: 140px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+  nav .search-container input {
+    width: 200px;
+  }
+
+  .box p {
+    width: 400px;
   }
 }

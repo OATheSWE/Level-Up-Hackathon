@@ -43,7 +43,26 @@ document.addEventListener("click", function () {
   }
 });
 
-// CODE TO HIDE BOX FROM THE PAGE
+
+// CODE FOR KEYBOARD USERS TO NAVIGATE THE PROFILE DROPDOWN
+
+document.addEventListener('DOMContentLoaded', function () {
+ 
+  const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+
+  dropdowns[1].addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          const index = Array.from(dropdownLinks).indexOf(document.activeElement);
+          const nextIndex = (event.key === 'ArrowDown') ? (index + 1) % dropdownLinks.length : (index - 1 + dropdownLinks.length) % dropdownLinks.length;
+          dropdownLinks[nextIndex].focus();
+      } else if (event.key === 'Escape') {
+          dropdowns[1].focus();
+      }
+  });
+});
+
+// CODE TO HIDE BOX SECTION FROM THE PAGE
 
 // Get reference to the cancel icon and the box
 const cancelIcon = document.getElementById("cancelIcon");
@@ -130,6 +149,13 @@ function handleClick() {
       finalSvg.classList.add("check-show");
     }, 300);
   }, 0);
+  
+  check.removeAttribute("tabindex");
+
+  finalSvg.setAttribute("tabindex", "0");
+
+  const index = Array.from(document.querySelectorAll(".check")).indexOf(check);
+  executeAccordionLogic(index);
 
   // Remove event listeners on "check" element
   removeCheckEventListeners(check);
@@ -163,17 +189,12 @@ function removeCheckEventListeners(check) {
   });
 }
 
-// Function to handle finalSvg click event
-function handleFinalSvgClick(check, index) {
-  const finalSvg = check.querySelector(".finalSvg");
-  const initialSvg = check.querySelector(".initialSvg");
 
-  // Reset the state to initial
-  finalSvg.classList.remove("check-show");
-  initialSvg.classList.remove("check-hide");
-  resetCheckElement(check);
+function tabClickEvent(element) {
+  // Trigger a click event on the specified element
+  const clickEvent = new Event("click");
+  element.dispatchEvent(clickEvent);
 }
-
 
 // Loop through elements with ids "check1" to "check5"
 for (let i = 1; i <= 5; i++) {
@@ -187,10 +208,21 @@ for (let i = 1; i <= 5; i++) {
   check.addEventListener("mouseover", handleMouseOver);
   check.addEventListener("mouseleave", handleMouseLeave);
   check.addEventListener("click", handleClick);
+  check.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      tabClickEvent(check);
+    }
+  });
+
 
   // Add click event listeners to each finalSvg element within the check element
   finalSvgElements.forEach((finalSvg, index) => {
     finalSvg.addEventListener("click", () => handleFinalSvgClick(check, index));
+    finalSvg.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        tabClickEvent(finalSvg);
+      }
+    });
   });
 }
 
@@ -203,6 +235,10 @@ function handleFinalSvgClick(check, index) {
   // Remove the "check-show" class from finalSvg and "check-hide" class from initialSvg
   finalSvg.classList.remove("check-show");
   initialSvg.classList.remove("check-hide");
+
+  finalSvg.removeAttribute("tabindex");
+
+  check.setAttribute("tabindex", "0");
 
   // Reset the check element to its initial state
   resetCheckElement(check);
@@ -275,6 +311,16 @@ mainAccordion.addEventListener("click", function (event) {
   }
 });
 
+// FOR KEYBOARD USERS TO USE THE CHECKBOX TO OPEN ACCORDIONS
+function executeAccordionLogic(index) {
+  // Close all accordions and toggle the state of the clicked accordion
+  closeAllAccordions();
+  accordions[index].classList.toggle("sub-open");
+  accordionsImg[index].classList.toggle("accord-show");
+  panelSmall[index].classList.toggle("accord-show");
+  accordionLabel[index].style.fontWeight = "600";
+}
+
 // Event listener for click on the accordion icon
 accordionIcon.addEventListener("click", function () {
   // Toggle the state of the subAccordion
@@ -282,6 +328,12 @@ accordionIcon.addEventListener("click", function () {
   toggleAccordionIcon(mainAccordion.querySelector(".accordion-icon"));
 });
 
+accordionIcon.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" || event.key === " ") {
+    subAccordion.classList.toggle("open");
+    toggleAccordionIcon(mainAccordion.querySelector(".accordion-icon"));
+  }
+});
 
 
 
