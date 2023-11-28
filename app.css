@@ -288,6 +288,7 @@ nav .nav-end .name .profile-drp div:nth-child(3) a:first-child p:nth-child(2) {
 
 nav .nav-end .name .profile-drp a#first {
   background: var(--plain-background);
+  margin-bottom: 5px;
 }
 
 nav .nav-end .name .profile-drp a:hover {
@@ -296,8 +297,8 @@ nav .nav-end .name .profile-drp a:hover {
 
 nav .nav-end .name .profile-drp a:focus {
   border: 2px solid var(--state-focused);
-}
-
+} 
+ 
 nav .nav-end .name .profile-drp a svg {
   stroke: var(--grey-grey-200);
 }
@@ -371,21 +372,25 @@ main {
   gap: 8px;
 }
 
+.box .box-end a {
+  text-decoration: none;
+}
+
 .select-plan {
   display: flex;
   padding: 6px 12px;
   align-items: center;
   gap: 8px;
-  border: none;
   background: var(--plain-white);
-  color: var(--font-dark-2);
   border-radius: 6px;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px -1px 0px 0px var(--grey-g-100) inset;
-  font: var(--text-12-semiB);
   transition: var(--transition);
-}
+  color: var(--font-dark-2);
+  font: var(--text-12-semiB);
+} 
+
 
 .select-plan:hover {
   background: var(--state-hover);

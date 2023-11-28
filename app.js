@@ -329,7 +329,7 @@ accordionIcon.addEventListener("click", function () {
 });
 
 accordionIcon.addEventListener("keydown", function (event) {
-  if (event.key === "Enter" || event.key === " ") {
+  if (event.key === "Enter" || event.key === " " || event.key === "ArrowUp") {
     subAccordion.classList.toggle("open");
     toggleAccordionIcon(mainAccordion.querySelector(".accordion-icon"));
   }
