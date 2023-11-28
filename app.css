@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-/* All Color Variables */
+/* All Variables */
 
 :root {
   --grey-50: #656266;
@@ -91,7 +91,6 @@ nav .search-container {
   max-width: 480px;
   width: 100%;
   padding: 3px 8px;
-  align-items: center;
   gap: 6px;
   flex-shrink: 0;
   border-radius: 8px;
@@ -131,7 +130,7 @@ nav .nav-end {
   position: relative;
 }
 
-nav .nav-end div {
+nav .nav-end section {
   cursor: pointer;
   transition: var(--transition);
 }
@@ -140,14 +139,14 @@ nav .nav-end div {
 
 nav .nav-end .icon {
   display: flex;
-  width: 32px;
-  height: 32px;
+  border: none;
   padding: 8px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 8px;
   background: var(--grey-200);
+  cursor: pointer;
 }
 
 nav .nav-end .icon:hover {
@@ -179,6 +178,7 @@ nav .nav-end .icon .alert {
   top: 5rem;
   align-items: flex-start;
   z-index: 9999;
+  transition: var(--transition);
 }
 
 /* ALERT HEAD SECTION */
@@ -230,6 +230,8 @@ nav .nav-end .name {
   color: var(--font-light);
   background: var(--grey-grey-200);
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 nav .nav-end .name:hover {
@@ -250,7 +252,7 @@ nav .nav-end .name span:nth-child(2), nav .nav-end .name .profile-drp a span {
   background: #36fba1;
   display: flex;
   height: 28px;
-  padding: 7px 14px;
+  padding: 5px 12px;
   justify-content: center;
   align-items: center;
   color: rgba(0, 0, 0, 0.4);
@@ -293,6 +295,11 @@ nav .nav-end .name .profile-drp a {
 nav .nav-end .name .profile-drp div:nth-child(3) a:first-child {
   flex-direction: column;
   align-items: flex-start;
+  gap: 0;
+}
+
+nav .nav-end .name .profile-drp div:nth-child(3) a:first-child p:nth-child(2) {
+  font: var(--text-12-Reg);
 }
 
 nav .nav-end .name .profile-drp a#first {
@@ -309,10 +316,6 @@ nav .nav-end .name .profile-drp a:focus {
 
 nav .nav-end .name .profile-drp a svg {
   stroke: var(--grey-grey-200);
-}
-
-nav .nav-end .name .profile-drp a span {
-
 }
 
 nav .nav-end .name .profile-drp a svg:nth-child(2) {
@@ -451,6 +454,10 @@ main {
   cursor: none;
 }
 
+
+
+/* MAIN ACCORDION  */
+
 .main-accordion {
   transition: var(--transition);
   border-radius: 18px;
@@ -485,24 +492,7 @@ main {
   animation: transitionLeft 2s ease-in-out;
 }
 
-.main-accordion .accordion-icon {
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  transition: var(--transition);
-  border-radius: 6px;
-}
-
-.accordion-icon:hover {
-  background: var(--state-hover);
-}
-
-.main-accordion .accordion-icon:focus {
-  outline: none;
-}
+/* MAIN CONTENT */
 
 .main-accordion .main-content {
   overflow: hidden;
@@ -513,6 +503,8 @@ main {
   align-items: flex-start;
   align-self: stretch;
 }
+
+/* INNER */
 
 .main-accordion .main-content .inner {
   display: flex;
@@ -546,7 +538,46 @@ main {
   gap: 8px;
 }
 
-/* Add these styles to your existing CSS */
+/* PROGRESS BAR */
+
+.progress-bar {
+  height: 4px;
+  background: var(--font-light);
+  border-radius: 5px;
+  overflow: hidden;
+  width: 72px;
+  margin-top: 2px;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background: var(--grey-grey-300);
+  transition: width var(--transition);
+}
+
+
+/* THE ACCORDION ICON */
+
+.main-accordion .accordion-icon {
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  transition: var(--transition);
+  border-radius: 6px;
+}
+
+.accordion-icon:hover {
+  background: var(--state-hover);
+}
+
+.main-accordion .accordion-icon:focus {
+  
+}
+
+/* SUB ACCORDION WITHIN MAIN ACCORDION */
 
 .sub-accordion {
   max-height: 1500px;
@@ -564,6 +595,9 @@ main {
   max-height: 0;
   transform: translateY(2rem);
 }
+
+
+/* ACCORDIONS WITHIN THE SUB ACCORDION */
 
 .sub-accordion .accordion {
   border-radius: 10px;
@@ -586,6 +620,17 @@ main {
 .open {
   max-height: 1000px;
 }
+
+/* LEFT CONTENT IN ACCORDION */
+
+.sub-accordion .accordion .left {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+/* CHECK BOX IN THE ACCORDION */
 
 .sub-accordion .accordion .left .check {
   position: relative;
@@ -621,6 +666,8 @@ main {
   filter: blur(0);
   visibility: visible;
 }
+
+/* OTHER CONTENTS IN THE LEFT CONTENT OF THE ACCORDION */
 
 .sub-accordion .panel {
   display: flex;
@@ -667,9 +714,18 @@ main {
   color: var(--font-mid);
 }
 
-.sub-accordion .panel p span {
+.sub-accordion .panel p  {
   font: var(--text-14-Med);
   color: var(--state-focused);
+}
+
+.sub-accordion .panel .panel-small .check2-btn {
+  display: flex;
+  gap: 16px;
+}
+
+.sub-accordion .panel .check2-btn button:nth-child(2) {
+
 }
 
 .sub-accordion .panel button {
@@ -707,12 +763,28 @@ main {
     0px 0px 0px 3px var(--plain-white), 0px 0px 0px 1.5px #333;
 }
 
-.sub-accordion .accordion .left {
-  cursor: pointer;
-  display: flex;
-  gap: 8px;
-  padding: 8px;
+.sub-accordion .panel .check2-btn button:nth-child(2) {
+  background: transparent;
+  border: none;
+  color: #000;
+  box-shadow: none;
 }
+
+.sub-accordion .panel .check2-btn button:nth-child(2):hover {
+  background: #e7e7e7;
+}
+
+.sub-accordion .panel .check2-btn button:nth-child(2):active {
+  background: #E0E0E0;
+}
+
+.sub-accordion .panel .check2-btn button:nth-child(2):focus {
+  border: 2px solid var(--state-focused);
+  background: var(--plain-white);
+}
+
+
+/* IMAGE INSIDE THE ACCORDION */
 
 .accordion img {
   filter: blur(4px);
@@ -732,22 +804,6 @@ main {
   transform: translateX(0);
 }
 
-.progress-bar {
-  height: 4px;
-  background: var(--font-light);
-  border-radius: 5px;
-  overflow: hidden;
-  width: 72px;
-  margin-top: 2px;
-}
-
-.progress {
-  height: 100%;
-  width: 0;
-  background: var(--grey-grey-300);
-  transition: width var(--transition);
-}
-
 @keyframes transitionIn {
   0% {
         opacity: 0;
@@ -763,16 +819,14 @@ main {
     }
 }
 
+
+
+
+/* MEDIA QUERIES */
+
 @media (min-width: 768px) and (max-width: 900px) {
   nav .search-container {
     max-width: 380px;
-  }
-}
-
-@media (max-width: 300px) {
-  nav .nav-end .icon .alert {
-    left: -180%;
-    width: auto;
   }
 }
 
@@ -800,9 +854,6 @@ main {
     width: auto;
   }
 
-  nav .search-container input {
-    min-width: 50px;
-  }
 
   nav .nav-end .icon {
     background: none;
@@ -830,11 +881,11 @@ main {
     width: auto;
   }
 
-  nav .nav-end .name span:first-child {
+  nav .nav-end .name :first-child {
     display: none;
   }
 
-  nav .nav-end .name .profile-drp a span {
+  nav .nav-end .name .profile-drp a  {
     display: flex;
   }
 
@@ -871,7 +922,6 @@ main {
     display: none;
   }
 }
-
 
 
 @media (min-width: 300px) and (max-width: 370px) {
